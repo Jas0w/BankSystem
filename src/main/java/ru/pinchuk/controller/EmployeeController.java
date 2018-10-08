@@ -57,15 +57,15 @@ public class EmployeeController {
     @Transactional
     public ModelAndView saveNewEmployee(@ModelAttribute("SpringWeb") Employee newEmployee, @PathVariable Long bankId) {
         newEmployee.setBank(bankService.getById(bankId));
-
         employeeService.addEmployee(newEmployee);
 
         return new ModelAndView("redirect:/banks/"+bankId+"/employees");
     }
 
-    @GetMapping(value = "/banks/{bankId}/employees/delete/{employeeId}")
+    @GetMapping(value = "/banks/{bankId}/employees/{employeeId}/delete")
     public ModelAndView deleteEmployee(@PathVariable Long employeeId, @PathVariable Long bankId) {
         employeeService.deleteEmployee(employeeId);
+
         return new ModelAndView("redirect:/banks/"+bankId+"/employees");
     }
 

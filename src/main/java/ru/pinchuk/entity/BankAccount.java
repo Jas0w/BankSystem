@@ -23,7 +23,7 @@ public class BankAccount {
     @Column(name = "amount_of_credit")
     private Double amountOfCredit;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 

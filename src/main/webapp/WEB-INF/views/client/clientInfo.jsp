@@ -13,8 +13,8 @@
     Address: <b>${client.address}</b><br/>
     Email: <b>${client.email}</b><br/>
 
-    <a href="clients/delete/${client.id}/update">Update</a><br/>
-
+    <a href="clients/${client.id}/update">Update</a><br/>
+    <a href="clients/${client.id}/accounts">accounts</a><br/>
     Тут еще аккаунты будут
 
 </body>

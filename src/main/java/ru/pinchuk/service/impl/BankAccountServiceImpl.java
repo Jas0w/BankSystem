@@ -33,4 +33,9 @@ public class BankAccountServiceImpl implements BankAccountService {
     public List<BankAccount> getAll() {
         return bankAccountRepository.findAll();
     }
+
+//    @Override
+//    public List<BankAccount> getAccountsByClientId(Long clientId) {
+//        return bankAccountRepository.getAccountsByClientId(clientId);
+//    }
 }

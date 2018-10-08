@@ -11,16 +11,21 @@
 
     <properties>
         <java.version>1.8</java.version>
+
         <spring-mvc.version>4.3.13.RELEASE</spring-mvc.version>
         <spring-data.version>1.9.1.RELEASE</spring-data.version>
         <spring-security.version>4.2.6.RELEASE</spring-security.version>
         <javax-servlet.version>3.1.0</javax-servlet.version>
         <hibernate.version>5.2.6.Final</hibernate.version>
         <postgresql-driver.version>9.1-901-1.jdbc4</postgresql-driver.version>
+
+        <jackson.version>2.5.2</jackson.version>
         <jstl.version>1.2</jstl.version>
+        <junit.version>4.12</junit.version>
         <mockito.version>1.9.5</mockito.version>
         <slf4j.version>1.7.25</slf4j.version>
-        <junit.version>4.12</junit.version>
+
+        <validation.version></validation.version>
     </properties>
 
     <dependencies>
@@ -118,18 +123,31 @@
             <version>${jstl.version}</version>
         </dependency>
 
+        <!-- Jackson JSON -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- Validation -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.4.1.Final</version>
+        </dependency>
+
         <!-- For test -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>${mockito.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring-test.version}</version>
             <scope>test</scope>
         </dependency>
 

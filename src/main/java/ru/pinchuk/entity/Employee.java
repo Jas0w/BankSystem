@@ -24,7 +24,7 @@ public class Employee {
     private String phoneNumber;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "bank_id", nullable = true)
+    @JoinColumn(name = "bank_id")
     private Bank bank;
 
     public Employee() {

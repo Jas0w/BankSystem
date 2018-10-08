@@ -20,7 +20,7 @@
             <td>${employee.firstName}</td>
             <td>${employee.lastName}</td>
             <td>${employee.phoneNumber}</td>
-            <td><a href="employees/delete/${employee.id}">delete</a><br/></td>
+            <td><a href="employees/${employee.id}/delete">delete</a><br/></td>
         </tr>
         </c:forEach>
 

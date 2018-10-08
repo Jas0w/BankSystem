@@ -2,12 +2,14 @@ package ru.pinchuk.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.pinchuk.entity.BankAccount;
 import ru.pinchuk.entity.Client;
 import ru.pinchuk.entity.Employee;
 import ru.pinchuk.repository.ClientRepository;
 import ru.pinchuk.service.ClientService;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ClientServiceImpl implements ClientService {

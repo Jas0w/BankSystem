@@ -17,6 +17,7 @@ public class Client {
     private Long id;
 
     @Column(name = "first_name")
+    @NameConstraint
     private String firstName;
 
     @Column(name = "last_name")
@@ -31,7 +32,7 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "bank_id", nullable = false)
     private Bank bank;
 

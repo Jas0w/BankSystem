@@ -18,4 +18,6 @@
 
     <context:property-placeholder location="classpath:database.properties"/>
 
+    <!--<bean class="org.springframework.security.core.userdetails.UserDetailsService"/>-->
+
 </beans>

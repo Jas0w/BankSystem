@@ -5,6 +5,7 @@ import ru.pinchuk.entity.Bank;
 import java.util.List;
 
 public interface BankService {
+
     Bank addBank(Bank bank);
     void delete(Long id);
     Bank getByName(String name);

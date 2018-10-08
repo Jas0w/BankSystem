@@ -16,9 +16,4 @@ public class MainController {
 
         return modelAndView;
     }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/test")
-    public ModelAndView security() {
-        return new ModelAndView("index");
-    }
 }

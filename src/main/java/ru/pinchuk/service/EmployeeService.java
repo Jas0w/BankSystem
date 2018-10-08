@@ -5,6 +5,7 @@ import ru.pinchuk.entity.Employee;
 import java.util.List;
 
 public interface EmployeeService {
+
     Employee addEmployee(Employee employee);
     void deleteEmployee(Long id);
     Employee editEmployee(Employee employee);

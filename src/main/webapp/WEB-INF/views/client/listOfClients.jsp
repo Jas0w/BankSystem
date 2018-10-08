@@ -15,15 +15,15 @@
             <th></th>
         </tr>
 
-        <c:forEach items="${clients}" var="client">
+        <c:forEach items="${clients}" var="account">
             <tr>
-                <td><a href="clients/${client.id}">${client.id}</a></td>
-                <td>${client.firstName}</td>
-                <td>${client.lastName}</td>
-                <td>${client.phoneNumber}</td>
-                <td>${client.address}</td>
-                <td>${client.email}</td>
-                <td><a href="clients/delete/${client.id}">delete</a><br/></td>
+                <td><a href="clients/${account.id}">${account.id}</a></td>
+                <td>${account.firstName}</td>
+                <td>${account.lastName}</td>
+                <td>${account.phoneNumber}</td>
+                <td>${account.address}</td>
+                <td>${account.email}</td>
+                <td><a href="clients/${account.id}/delete">delete</a><br/></td>
             </tr>
         </c:forEach>
     </table>

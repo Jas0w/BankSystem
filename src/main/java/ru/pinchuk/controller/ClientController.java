@@ -3,12 +3,17 @@ package ru.pinchuk.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import ru.pinchuk.entity.BankAccount;
 import ru.pinchuk.entity.Client;
+import ru.pinchuk.service.BankAccountService;
 import ru.pinchuk.service.BankService;
 import ru.pinchuk.service.ClientService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -16,6 +21,9 @@ public class ClientController {
 
     @Autowired
     private ClientService clientService;
+
+    @Autowired
+    private BankAccountService bankAccountService;
 
     @Autowired
     private BankService bankService;
@@ -54,16 +62,33 @@ public class ClientController {
 
     @PostMapping(value = "/banks/{bankId}/addClient")
     @Transactional
-    public ModelAndView saveNewClient(@ModelAttribute("SpringWeb")Client newClient, @PathVariable Long bankId) {
+    public ModelAndView saveNewClient(
+            @ModelAttribute("SpringWeb") @Valid Client newClient,
+            @PathVariable Long bankId,
+            BindingResult result, Model m) {
+        if(result.hasErrors()) {
+            return new ModelAndView("client/addClient");
+        }
+
         newClient.setBank(bankService.getById(bankId));
         clientService.addClient(newClient);
         
         return new ModelAndView("redirect:/banks/"+bankId+"/clients");
     }
 
-    @GetMapping(value = "/banks/{bankId}/clients/delete/{clientId}")
+    @GetMapping(value = "/banks/{bankId}/clients/{clientId}/delete")
     public ModelAndView deleteClient(@PathVariable Long bankId, @PathVariable Long clientId) {
         clientService.deleteClient(clientId);
+
         return new ModelAndView("redirect:/banks/"+bankId+"/clients");
+    }
+
+    @GetMapping(value = "/banks/{bankId}/clients/{clientId}/accounts")
+    public ModelAndView getAccounts(@PathVariable Long clientId) {
+        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("accounts", bankAccountService.getAccountsByClientId(clientId));
+        modelAndView.setViewName("client/accounts");
+
+        return modelAndView;
     }
 }
