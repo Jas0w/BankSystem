@@ -5,10 +5,10 @@ import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = NameValidator.class)
+@Constraint(validatedBy = PhoneValidator.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface NameConstraint {
+public @interface Phone {
     String message() default "Invalid Name";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};

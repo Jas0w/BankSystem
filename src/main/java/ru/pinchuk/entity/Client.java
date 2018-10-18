@@ -1,8 +1,10 @@
 package ru.pinchuk.entity;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Set;
 
 
@@ -17,19 +19,25 @@ public class Client {
     private Long id;
 
     @Column(name = "first_name")
-    @NameConstraint
+    @NotNull
+    @Size(min=2, max=30)
     private String firstName;
 
     @Column(name = "last_name")
+    @NotNull
+    @Size(min=2, max=30)
     private String lastName;
 
     @Column(name = "phone_number")
+    @NotNull
     private String phoneNumber;
 
     @Column(name = "address")
+    @NotNull
     private String address;
 
     @Column(name = "email")
+    @Email
     private String email;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
